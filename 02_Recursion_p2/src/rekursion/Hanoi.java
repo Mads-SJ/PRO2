@@ -21,7 +21,7 @@ public class Hanoi {
 		}
 	}
 
-	// antal flytninger er 2^(n+1) - 1
+	// antal flytninger er 2^(n) - 1
 	public static int antalFlytninger(int n, int fra, int til){
 		if (n==1) {
 			return 1;
