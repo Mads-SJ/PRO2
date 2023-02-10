@@ -19,7 +19,7 @@ public class App {
         return sum(list, 0, list.size() - 1);
     }
 
-    public static int sum(ArrayList<Integer> list, int l, int h) {
+    private static int sum(ArrayList<Integer> list, int l, int h) {
         if (l == h) {
             return list.get(l);
         } else {
@@ -34,13 +34,9 @@ public class App {
         return numberOfZeros(list, 0, list.size() - 1);
     }
 
-    public static int numberOfZeros(ArrayList<Integer> list, int l, int h) {
+    private static int numberOfZeros(ArrayList<Integer> list, int l, int h) {
         if (l == h) {
-            if (list.get(l) == 0) {
-                return 1;
-            } else {
-                return 0;
-            }
+            return list.get(l) == 0 ? 1 : 0;
         } else {
             int m = (l + h) / 2;
             int n1 = numberOfZeros(list, l, m);

@@ -41,7 +41,7 @@ public class Gui extends Application
 
     private void drawShapes(Pane pane)
     {
-        sierpinski(4, 50, 350, 300);
+        sierpinski(1, 50, 350, 300);
     }
 
     private void sierpinski(int n, double x, double y, double size) {
