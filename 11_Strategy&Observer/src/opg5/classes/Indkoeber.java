@@ -12,11 +12,12 @@ public class Indkoeber implements Observer {
 
     @Override
     public void update(Subject s) {
-        BogTitel bogTitel = (BogTitel) s;
-        if (bogTitel.getAntal() < 6) {
-            int antal = 10;
-            System.out.println("Der skal købes " + antal + " eksemplarer af " + bogTitel.getTitel());
-            bogTitel.indkoebTilLager(antal);
+        if (s instanceof BogTitel bogTitel) {
+            if (bogTitel.getAntal() < 6) {
+                int antal = 10;
+                System.out.println("Der skal købes " + antal + " eksemplarer af " + bogTitel.getTitel());
+                bogTitel.indkoebTilLager(antal);
+            }
         }
     }
 }

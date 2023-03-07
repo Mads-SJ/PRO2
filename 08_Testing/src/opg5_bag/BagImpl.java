@@ -1,10 +1,11 @@
 package opg5_bag;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class BagImpl implements Bag {
 
-    HashMap<String, Integer> map = new HashMap<>();
+    private final Map<String, Integer> map = new HashMap<>();
 
     @Override
     public void add(String s) {

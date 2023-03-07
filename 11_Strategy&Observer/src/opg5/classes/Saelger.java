@@ -14,20 +14,21 @@ public class Saelger implements Observer {
 
     @Override
     public void update(Subject s) {
-        BogTitel bogTitel = (BogTitel) s;
-        ArrayList<BogTitel> andreBoeger = new ArrayList<>();
+        if (s instanceof BogTitel bogTitel) {
+            ArrayList<BogTitel> andreBoeger = new ArrayList<>();
 
-        for (Kunde k : bogTitel.getKunder()) {
-            for (BogTitel b : k.getBogtitler()) {
-                if (!andreBoeger.contains(b) && !b.getTitel().equals(bogTitel.getTitel())) {
-                    andreBoeger.add(b);
+            for (Kunde k : bogTitel.getKunder()) {
+                for (BogTitel b : k.getBogtitler()) {
+                    if (!andreBoeger.contains(b) && !b.getTitel().equals(bogTitel.getTitel())) {
+                        andreBoeger.add(b);
+                    }
                 }
             }
-        }
 
-        System.out.println("Andre kunder køber også: ");
-        for (BogTitel b : andreBoeger) {
-            System.out.println("- " + b.getTitel());
+            System.out.println("Andre kunder køber også: ");
+            for (BogTitel b : andreBoeger) {
+                System.out.println("- " + b.getTitel());
+            }
         }
     }
 }

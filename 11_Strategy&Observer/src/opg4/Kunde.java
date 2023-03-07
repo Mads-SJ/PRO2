@@ -29,6 +29,10 @@ public class Kunde implements Comparable<Kunde> {
         this.nummer = nummer;
     }
 
+    public void setComparator(Comparator<Kunde> comparator) {
+        this.comparator = comparator;
+    }
+
     @Override
     public String toString() {
         return "Kunde{" +

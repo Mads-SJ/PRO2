@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/05_Collections/05_Collections.iml" filepath="$PROJECT_DIR$/05_Collections/05_Collections.iml" />
       <module fileurl="file://$PROJECT_DIR$/08_Testing/08_Testing.iml" filepath="$PROJECT_DIR$/08_Testing/08_Testing.iml" />
       <module fileurl="file://$PROJECT_DIR$/11_Strategy&amp;Observer/11_Strategy&amp;Observer.iml" filepath="$PROJECT_DIR$/11_Strategy&amp;Observer/11_Strategy&amp;Observer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12_Singleton&amp;Adapter/12_Singleton&amp;Adapter.iml" filepath="$PROJECT_DIR$/12_Singleton&amp;Adapter/12_Singleton&amp;Adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/PRO2.iml" filepath="$PROJECT_DIR$/PRO2.iml" />
     </modules>
   </component>

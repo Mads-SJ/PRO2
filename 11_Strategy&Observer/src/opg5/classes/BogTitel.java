@@ -4,17 +4,19 @@ import opg5.interfaces.Observer;
 import opg5.interfaces.Subject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BogTitel implements Subject {
     private String titel;
     private int antal;
-    private ArrayList<Observer> observers;
+    private Set<Observer> observers;
     private ArrayList<Kunde> kunder;
 
     public BogTitel(String titel, int antal) {
         this.titel = titel;
         this.antal = antal;
-        observers = new ArrayList<>();
+        observers = new HashSet<>();
         kunder = new ArrayList<>();
     }
 
