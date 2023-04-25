@@ -1,5 +1,8 @@
 package opgave2sortedlinkedlist;
 
+import opgave3sortedlinkelistdouble.SortedLinkedListDouble;
+import org.w3c.dom.Node;
+
 public class SortedLinkedList {
 	private Node first;
 
@@ -88,23 +91,20 @@ public class SortedLinkedList {
 	 * @return true hvis der blev fjernet fra listen ellers returneres false.
 	 */
 	public boolean removeLast() {
-		boolean removed = false;
 		if (first == null) {
-			removed = false;
+			return false;
 		} else if (first.next == null) {
 			first = null;
-			removed = true;
 		} else {
 			Node temp = first;
-			while(!removed && temp.next != null) {
-				if (temp.next.next == null) {
-					temp.next = null;
-					removed = true;
-				}
+			Node prev = null;
+			while(temp.next != null) {
+				prev = temp;
 				temp = temp.next;
 			}
+			prev.next = null;
 		}
-		return removed;
+		return true;
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class SortedLinkedList {
 	 * @return true hvis e blev fjernet fra listen ellers returneres false.
 	 */
 	public boolean removeElement(String e) {
-		boolean removed = false;
+		/*boolean removed = false;
 		if (first == null) {
 			removed = false;
 		} else if (first.data.equals(e)) {
@@ -129,7 +129,52 @@ public class SortedLinkedList {
 				}
 			}
 		}
-		return removed;
+		return removed;*/
+
+		if (first == null) {
+			return false;
+		} else if (first.data.equals(e)) {
+			first = first.next;
+		} else {
+			Node temp = first;
+			while (temp.next != null && !temp.next.data.equals(e)) {
+				temp = temp.next;
+			}
+			if (temp.next != null) {
+				temp.next = temp.next.next;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Tilføjer alle elementerne fra list til den aktuelle liste.
+	 * Listen er fortsat sorteret i henhold til den naturlige ordning på
+	 * elementerne.
+	 */
+	public void addAll(SortedLinkedList list) {
+		Node temp = list.first;
+		while (temp != null) {
+			addElement(temp.data);
+			temp = temp.next;
+		}
+	}
+
+	private int countElementsRecursive(Node node) {
+		if (node.next == null) {
+			return 1;
+		}
+		else {
+			return countElementsRecursive(node.next) + 1;
+		}
+	}
+
+	public int countElementsRecursive() {
+		if (first == null) {
+			return 0;
+		} else {
+			return countElementsRecursive(first);
+		}
 	}
 
 	// Privat indre klasse der modellerer en node i listen

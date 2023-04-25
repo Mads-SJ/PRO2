@@ -32,5 +32,22 @@ public class TestSortedLinkedList {
         list.addElement("C");
         System.out.println(list.removeElement("B"));
         list.udskrivElements();
+        System.out.println();
+
+        // OPG 4
+        // Tidskompleksitet = O(n * m) for n og m lig de to listers længde
+        SortedLinkedList list2 = new SortedLinkedList();
+        list2.addElement("B");
+        list2.addElement("A");
+        list2.addElement("C");
+        list2.addElement("E");
+        list2.addElement("D");
+
+        list.addAll(list2);
+        list.udskrivElements();
+
+        // OPG 5
+        System.out.println("Normal count: " + list.countElements());
+        System.out.println("Recursive count: " + list.countElementsRecursive());
     }
 }

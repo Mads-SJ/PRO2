@@ -19,7 +19,23 @@ public class SortedLinkedListDouble {
 	 * naturlige ordning på elementerne
 	 */
 	public void addElement(String e) {
-		// TODO
+		Node node = new Node();
+		node.data = e;
+		if (first.next == null) {
+			node.prev = first;
+			node.next = last;
+			first.next = node;
+			last.prev = node;
+		} else {
+			Node temp = first;
+			while (temp.next != last && e.compareTo(temp.next.data) > 0) {
+				temp = temp.next;
+			}
+			node.prev = temp;
+			node.next = temp.next;
+			temp.next.prev = node;
+			temp.next = node;
+		}
 	}
 
 	/**
@@ -29,30 +45,54 @@ public class SortedLinkedListDouble {
 	 * @return true hvis e blev fjernet fra listen ellers returneres false.
 	 */
 	public boolean removeElement(String e) {
-	// TODO
-		return false;
+		if (first.next == last) {
+			return false;
+		} else {
+			Node temp = first;
+			while (temp.next != last && !temp.next.data.equals(e)) {
+				temp = temp.next;
+			}
+			if (temp.next != last) {
+				temp.next = temp.next.next;
+				temp.next.prev = temp;
+			}
+		}
+		return true;
 	}
 
 	/**
-	 * Udskriver elementerne fra listen i sorteret rækkefølge 
+	 * Udskriver elementerne fra listen i sorteret rækkefølge
 	 */
 	public void udskrivElements() {
-		//TODO
+		Node temp = first.next;
+		while (temp != last) {
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
 	}
 
 	/**
 	 * Udskriver elementerne fra listen i sorteret rækkefølge bagfra
 	 */
 	public void udskrivBagfra() {
-		// TODO
+		Node temp = last.prev;
+		while (temp != first) {
+			System.out.println(temp.data);
+			temp = temp.prev;
+		}
 	}
 
 	/**
 	 * Returnerer antallet af elementer i listen
 	 */
 	public int countElements() {
-		// TODO
-		return -1;
+		Node temp = first.next;
+		int count = 0;
+		while (temp != last) {
+			count++;
+			temp = temp.next;
+		}
+		return count;
 	}
 
 	// Privat indre klasse der modellerer en node i en dobbeltkædet liste
