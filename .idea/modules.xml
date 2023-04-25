@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/12_Singleton&amp;Adapter/12_Singleton&amp;Adapter.iml" filepath="$PROJECT_DIR$/12_Singleton&amp;Adapter/12_Singleton&amp;Adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/13_Iterator&amp;Composite/13_Iterator&amp;Composite.iml" filepath="$PROJECT_DIR$/13_Iterator&amp;Composite/13_Iterator&amp;Composite.iml" />
       <module fileurl="file://$PROJECT_DIR$/14_ArchLayers&amp;Serializable/14_ArchLayers&amp;Serializable.iml" filepath="$PROJECT_DIR$/14_ArchLayers&amp;Serializable/14_ArchLayers&amp;Serializable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/21_LinkedLists/21_LinkedLists.iml" filepath="$PROJECT_DIR$/21_LinkedLists/21_LinkedLists.iml" />
       <module fileurl="file://$PROJECT_DIR$/PRO2.iml" filepath="$PROJECT_DIR$/PRO2.iml" />
     </modules>
   </component>
