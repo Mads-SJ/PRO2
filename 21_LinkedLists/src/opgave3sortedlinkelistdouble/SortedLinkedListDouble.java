@@ -36,6 +36,7 @@ public class SortedLinkedListDouble {
 			temp.next.prev = node;
 			temp.next = node;
 		}
+		size++;
 	}
 
 	/**
@@ -57,6 +58,7 @@ public class SortedLinkedListDouble {
 				temp.next.prev = temp;
 			}
 		}
+		size--;
 		return true;
 	}
 
@@ -86,13 +88,7 @@ public class SortedLinkedListDouble {
 	 * Returnerer antallet af elementer i listen
 	 */
 	public int countElements() {
-		Node temp = first.next;
-		int count = 0;
-		while (temp != last) {
-			count++;
-			temp = temp.next;
-		}
-		return count;
+		return size;
 	}
 
 	// Privat indre klasse der modellerer en node i en dobbeltkædet liste

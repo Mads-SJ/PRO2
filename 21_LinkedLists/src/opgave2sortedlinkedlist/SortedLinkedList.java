@@ -51,7 +51,8 @@ public class SortedLinkedList {
 			first = node;
 		} else {
 			Node temp = first;
-			while (temp.next != null && e.compareTo(temp.next.data) > 0) {
+			while (temp.next != null
+					&& e.compareTo(temp.next.data) > 0) {
 				temp = temp.next;
 			}
 			node.next = temp.next;
@@ -161,8 +162,8 @@ public class SortedLinkedList {
 	}
 
 	private int countElementsRecursive(Node node) {
-		if (node.next == null) {
-			return 1;
+		if (node == null) {
+			return 0;
 		}
 		else {
 			return countElementsRecursive(node.next) + 1;
@@ -170,11 +171,7 @@ public class SortedLinkedList {
 	}
 
 	public int countElementsRecursive() {
-		if (first == null) {
-			return 0;
-		} else {
-			return countElementsRecursive(first);
-		}
+		return countElementsRecursive(first);
 	}
 
 	// Privat indre klasse der modellerer en node i listen
