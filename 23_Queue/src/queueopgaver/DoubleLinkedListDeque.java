@@ -20,7 +20,7 @@ public class DoubleLinkedListDeque implements DequeI {
     @Override
     public void addFirst(Object newElement) {
         Node node = new Node(newElement);
-        if (tail.next == head) {
+        if (isEmpty()) {
             node.next = head;
             node.prev = tail;
             tail.next = node;
@@ -37,7 +37,7 @@ public class DoubleLinkedListDeque implements DequeI {
     @Override
     public void addLast(Object newElement) {
         Node node = new Node(newElement);
-        if (tail.next == head) {
+        if (isEmpty()) {
             node.next = head;
             node.prev = tail;
             tail.next = node;
@@ -53,10 +53,10 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object removeFirst() {
-        if (tail.next == head) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        Object o = head.data;
+        Object o = head.prev.data;
         head = head.prev;
         size--;
         return o;
@@ -64,10 +64,10 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object removeLast() {
-        if (tail.next == head) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        Object o = tail.data;
+        Object o = tail.next.data;
         tail = tail.next;
         size--;
         return o;
@@ -75,12 +75,18 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object getFirst() {
-        return head.data;
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return head.prev.data;
     }
 
     @Override
     public Object getLast() {
-        return tail.data;
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return tail.next.data;
     }
 
     @Override

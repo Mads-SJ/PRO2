@@ -7,6 +7,11 @@ public class CircularArrayDeque implements DequeI {
     private int tail;
     private int size = 0;
     private Object[] queue = new Object[10];
+
+    public CircularArrayDeque() {
+        head = 0;
+        tail = 1;
+    }
     @Override
     public boolean isEmpty() {
         return size == 0;
@@ -17,8 +22,16 @@ public class CircularArrayDeque implements DequeI {
         if (size == queue.length) {
             grow();
         }
-        head = (head - 1) % queue.length;
+        if ((size > 0)) {
+            int index = (head - 1);
+            if (index < 0) {
+                head = queue.length + index;
+            } else {
+                head = index;
+            }
+        }
         queue[head] = newElement;
+        size++;
     }
 
     @Override
@@ -26,8 +39,11 @@ public class CircularArrayDeque implements DequeI {
         if (size == queue.length) {
             grow();
         }
-        tail = (tail + 1) % queue.length;
+        if (size > 0) {
+            tail = (tail + 1) % queue.length;
+        }
         queue[tail] = newElement;
+        size++;
     }
 
     @Override
@@ -37,7 +53,8 @@ public class CircularArrayDeque implements DequeI {
         }
         Object o = queue[head];
         queue[head] = null;
-        head = (head - 1) % queue.length;
+        head = (head + 1) % queue.length;
+        size--;
         return o;
     }
 
@@ -48,7 +65,13 @@ public class CircularArrayDeque implements DequeI {
         }
         Object o = queue[tail];
         queue[tail] = null;
-        tail = (tail + 1) % queue.length;
+        int index = (tail - 1);
+        if (index < 0) {
+            tail = queue.length + index;
+        } else {
+            tail = index;
+        }
+        size--;
         return o;
     }
 
