@@ -49,5 +49,10 @@ public class TestSortedLinkedList {
         // OPG 5
         System.out.println("Normal count: " + list.countElements());
         System.out.println("Recursive count: " + list.countElementsRecursive());
+
+        // Iterator
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 }

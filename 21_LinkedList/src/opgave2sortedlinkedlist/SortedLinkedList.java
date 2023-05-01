@@ -1,10 +1,12 @@
 package opgave2sortedlinkedlist;
 
-import opgave3sortedlinkelistdouble.SortedLinkedListDouble;
-import org.w3c.dom.Node;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class SortedLinkedList {
+public class SortedLinkedList implements Iterable<String> {
 	private Node first;
+	private int state;
 
 	public SortedLinkedList() {
 		first = null;
@@ -58,6 +60,7 @@ public class SortedLinkedList {
 			node.next = temp.next;
 			temp.next = node;
 		}
+		state++;
 	}
 
 	/**
@@ -105,6 +108,7 @@ public class SortedLinkedList {
 			}
 			prev.next = null;
 		}
+		state++;
 		return true;
 	}
 
@@ -145,6 +149,7 @@ public class SortedLinkedList {
 				temp.next = temp.next.next;
 			}
 		}
+		state++;
 		return true;
 	}
 
@@ -159,6 +164,7 @@ public class SortedLinkedList {
 			addElement(temp.data);
 			temp = temp.next;
 		}
+		state++;
 	}
 
 	private int countElementsRecursive(Node node) {
@@ -174,9 +180,42 @@ public class SortedLinkedList {
 		return countElementsRecursive(first);
 	}
 
+	@Override
+	public Iterator<String> iterator() {
+		return new SortedLinkedListIterator();
+	}
+
 	// Privat indre klasse der modellerer en node i listen
-	private class Node {
+	class Node {
 		public String data;
 		public Node next;
+	}
+
+	private class SortedLinkedListIterator implements Iterator<String> {
+		private Node position;
+		private int expectedState = state;
+		@Override
+		public boolean hasNext() {
+			if (position == null) {
+				return first != null;
+			}
+			return position.next != null;
+		}
+
+		@Override
+		public String next() {
+			if (expectedState != state) {
+				throw new ConcurrentModificationException();
+			} else if (!hasNext())
+				throw new NoSuchElementException();
+
+			if (position == null) {
+				position = first;
+			}
+			else {
+				position = position.next;
+			}
+			return position.data;
+		}
 	}
 }
