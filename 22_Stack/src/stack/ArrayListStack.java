@@ -11,11 +11,17 @@ public class ArrayListStack implements StackI {
 
     @Override
     public Object pop() {
+        if (list.isEmpty()) {
+            throw new IndexOutOfBoundsException();
+        }
         return list.remove(list.size() - 1);
     }
 
     @Override
     public Object peek() {
+        if (list.isEmpty()) {
+            throw new IndexOutOfBoundsException();
+        }
         return list.get(list.size() - 1);
     }
 

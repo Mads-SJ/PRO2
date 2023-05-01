@@ -45,20 +45,38 @@ public class StackDemo {
         }
     }
 
-    public static boolean checkParentheses(String s){
-        StackI stack = new ArrayStack(s.length());
+    public static boolean checkParentheses(String s) {
+        /*StackI stack = new ArrayStack(s.length());
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
-            } else if(c == ')' || c == '}' || c == ']') {
-                if(stack.isEmpty()){
+            } else if (c == ')' || c == '}' || c == ']') {
+                if (stack.isEmpty()) {
                     return false;
                 }
                 char top = (char) stack.pop();
                 if (c == ')' && top != '('
                         || c == '}' && top != '{'
                         || c == ']' && top != '[') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();*/
+        StackI stack = new ArrayStack(s.length());
+        String left = "({[";
+        String right = ")}]";
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (left.indexOf(c) != -1) {
+                stack.push(c);
+            } else if (right.indexOf(c) != -1) {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = (char) stack.pop();
+                if (right.indexOf(c) != left.indexOf(top)) {
                     return false;
                 }
             }

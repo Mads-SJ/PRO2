@@ -2,12 +2,13 @@ package stack;
 
 import java.util.NoSuchElementException;
 
-public class SingleLinkedListDropOutStack {
+public class DoubleLinkedListDropOutStack {
     private Node top;
+    private Node bottom;
     private int size;
-    private final int maxSize;
+    private int maxSize;
 
-    public SingleLinkedListDropOutStack(int maxSize) {
+    public DoubleLinkedListDropOutStack(int maxSize) {
         this.maxSize = maxSize;
     }
 
@@ -16,8 +17,14 @@ public class SingleLinkedListDropOutStack {
             removeLast();
         }
         Node n = new Node(element);
-        n.next = top;
-        top = n;
+        if (top == null) {
+            top = n;
+            bottom = n;
+        } else {
+            n.next = top;
+            top.previous = n;
+            top = n;
+        }
         size++;
     }
 
@@ -27,6 +34,11 @@ public class SingleLinkedListDropOutStack {
         }
         Object o = top.data;
         top = top.next;
+        if (top != null) {
+            top.previous = null;
+        } else {
+            bottom = null;
+        }
         size--;
         return o;
     }
@@ -46,26 +58,30 @@ public class SingleLinkedListDropOutStack {
         return size;
     }
 
-    public boolean removeLast() {
+    public Object removeLast() {
         if (top == null) {
-            return false;
-        } else if (top.next == null) {
-            top = null;
-        } else {
-            Node temp = top;
-            Node prev = null;
-            while(temp.next != null) {
-                prev = temp;
-                temp = temp.next;
-            }
-            prev.next = null;
+            throw new NoSuchElementException();
         }
-        return true;
+        if (top.next == null) {
+            Object o = top.data;
+            top = null;
+            size--;
+            return o;
+        }
+        Node n = top;
+        while (n.next.next != null) {
+            n = n.next;
+        }
+        Object o = n.next.data;
+        n.next = null;
+        size--;
+        return o;
     }
 
     private class Node {
         public Object data;
         public Node next;
+        public Node previous;
 
         public Node(Object data) {
             this.data = data;

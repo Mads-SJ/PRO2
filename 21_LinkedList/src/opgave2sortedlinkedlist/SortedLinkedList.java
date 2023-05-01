@@ -193,7 +193,7 @@ public class SortedLinkedList implements Iterable<String> {
 
 	private class SortedLinkedListIterator implements Iterator<String> {
 		private Node position;
-		private int expectedState = state;
+		private final int expectedState = state;
 		@Override
 		public boolean hasNext() {
 			if (position == null) {
