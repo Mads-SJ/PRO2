@@ -15,7 +15,7 @@ public class SingleLinkedListQueue implements QueueI {
     @Override
     public void enqueue(Object newElement) {
         Node node = new Node(newElement);
-        if (head == null) {
+        if (isEmpty()) {
             head = node;
         } else {
             tail.next = node;
@@ -26,9 +26,8 @@ public class SingleLinkedListQueue implements QueueI {
 
     @Override
     public Object dequeue() {
-        if (head == null) {
-            throw new NoSuchElementException();
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
+
         Node node = head;
         head = node.next;
         size--;
@@ -37,6 +36,7 @@ public class SingleLinkedListQueue implements QueueI {
 
     @Override
     public Object getFront() {
+        if (isEmpty()) { throw new NoSuchElementException(); }
         return head.data;
     }
 
@@ -45,7 +45,7 @@ public class SingleLinkedListQueue implements QueueI {
         return size;
     }
 
-    class Node {
+    static class Node {
         public Object data;
         public Node next;
         public Node(Object element) {

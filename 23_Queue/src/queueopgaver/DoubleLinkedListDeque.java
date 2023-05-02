@@ -3,13 +3,16 @@ package queueopgaver;
 import java.util.NoSuchElementException;
 
 public class DoubleLinkedListDeque implements DequeI {
-    private Node head = new Node(null);
-    private Node tail = new Node(null);
+    private Node head;
+    private Node tail;
     private int size;
 
     public DoubleLinkedListDeque() {
+        head = new Node(null);
+        tail = new Node(null);
         tail.next = head;
         head.prev = tail;
+        size = 0;
     }
 
     @Override
@@ -53,9 +56,8 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object removeFirst() {
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
+
         Object o = head.prev.data;
         head = head.prev;
         size--;
@@ -64,9 +66,8 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object removeLast() {
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
+
         Object o = tail.next.data;
         tail = tail.next;
         size--;
@@ -83,9 +84,8 @@ public class DoubleLinkedListDeque implements DequeI {
 
     @Override
     public Object getLast() {
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
+
         return tail.next.data;
     }
 

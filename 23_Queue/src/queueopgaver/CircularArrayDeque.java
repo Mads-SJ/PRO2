@@ -3,14 +3,14 @@ package queueopgaver;
 import java.util.NoSuchElementException;
 
 public class CircularArrayDeque implements DequeI {
-    private int head;
-    private int tail;
+    private int first;
+    private int last;
     private int size = 0;
-    private Object[] queue = new Object[10];
+    private Object[] elements = new Object[10];
 
     public CircularArrayDeque() {
-        head = 0;
-        tail = 1;
+        first = 0;
+        last = 1;
     }
     @Override
     public boolean isEmpty() {
@@ -19,30 +19,29 @@ public class CircularArrayDeque implements DequeI {
 
     @Override
     public void addFirst(Object newElement) {
-        if (size == queue.length) {
+        if (size == elements.length) {
             grow();
         }
-        if ((size > 0)) {
-            int index = (head - 1);
-            if (index < 0) {
-                head = queue.length + index;
+        if (!isEmpty()) {
+            if (first == 0) {
+                first = elements.length - 1;
             } else {
-                head = index;
+                first--;
             }
         }
-        queue[head] = newElement;
+        elements[first] = newElement;
         size++;
     }
 
     @Override
     public void addLast(Object newElement) {
-        if (size == queue.length) {
+        if (size == elements.length) {
             grow();
         }
-        if (size > 0) {
-            tail = (tail + 1) % queue.length;
+        if (!isEmpty()) {
+            last = (last + 1) % elements.length;
         }
-        queue[tail] = newElement;
+        elements[last] = newElement;
         size++;
     }
 
@@ -51,11 +50,11 @@ public class CircularArrayDeque implements DequeI {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        Object o = queue[head];
-        queue[head] = null;
-        head = (head + 1) % queue.length;
+        Object removedElement = elements[first];
+        elements[first] = null;
+        first = (first + 1) % elements.length;
         size--;
-        return o;
+        return removedElement;
     }
 
     @Override
@@ -63,16 +62,15 @@ public class CircularArrayDeque implements DequeI {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        Object o = queue[tail];
-        queue[tail] = null;
-        int index = (tail - 1);
-        if (index < 0) {
-            tail = queue.length + index;
+        Object removedElement = elements[last];
+        elements[last] = null;
+        if (last == 0) {
+            last = elements.length - 1;
         } else {
-            tail = index;
+            last--;
         }
         size--;
-        return o;
+        return removedElement;
     }
 
     @Override
@@ -80,7 +78,7 @@ public class CircularArrayDeque implements DequeI {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return queue[head];
+        return elements[first];
     }
 
     @Override
@@ -88,7 +86,7 @@ public class CircularArrayDeque implements DequeI {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return queue[tail];
+        return elements[last];
     }
 
     @Override
@@ -99,8 +97,8 @@ public class CircularArrayDeque implements DequeI {
     private void grow() {
         Object[] newQueue = new Object[size * 2];
         for (int i = 0; i < size; i++) {
-            newQueue[i] = queue[i];
+            newQueue[i] = elements[i];
         }
-        queue = newQueue;
+        elements = newQueue;
     }
 }
