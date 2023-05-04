@@ -89,7 +89,7 @@ public class HashSetChaining {
 		boolean removed = false;
 
 		if (current.data.equals(x)) {
-			buckets[h] = null;
+			current = current.next;
 			removed = true;
 		}
 

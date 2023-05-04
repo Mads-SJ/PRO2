@@ -30,12 +30,12 @@ public class HashSetLinearProbing {
 		int h = hashValue(x);
 		Object object = buckets[h];
 		boolean found = false;
-		while (!found && object != null) {
+		while (!(found || object == null)) {
 			if (object.equals(x)) {
 				found = true;
 			} else {
-				h++;
-				object = buckets[h % buckets.length];
+				h = (h + 1) % buckets.length;
+				object = buckets[h];
 			}
 		}
 		return found;
@@ -59,11 +59,11 @@ public class HashSetLinearProbing {
 		int h = hashValue(x);
 		Object object = buckets[h];
 
-		while (object != null && object != DELETED) {
-			h++;
-			object = buckets[h % buckets.length];
+		while (!(object == null || object == DELETED)) {
+			h = (h + 1) % buckets.length;
+			object = buckets[h];
 		}
-		buckets[h % buckets.length] = x;
+		buckets[h] = x;
 		currentSize++;
 		return true;
 	}
@@ -80,14 +80,14 @@ public class HashSetLinearProbing {
 		int h = hashValue(x);
 		Object object = buckets[h];
 		boolean removed = false;
-		while (!removed && object != null) {
+		while (!(removed || object == null)) {
 			if (object.equals(x)) {
-				buckets[h % buckets.length] = DELETED;
+				buckets[h] = DELETED;
 				currentSize--;
 				removed = true;
 			} else {
-				h++;
-				object = buckets[h % buckets.length];
+				h = (h + 1) % buckets.length;
+				object = buckets[h];
 			}
 		}
 		return removed;
@@ -98,7 +98,7 @@ public class HashSetLinearProbing {
 		Object[] oldBuckets = buckets;
 		buckets = new Object[oldBuckets.length * 2 + 1];
 		for (Object o : oldBuckets) {
-			if (o != null && o != DELETED) {
+			if (!(o == null || o == DELETED)) {
 				add(o);
 			}
 		}
