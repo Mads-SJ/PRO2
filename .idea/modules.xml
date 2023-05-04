@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/22_Stack/22_Stack.iml" filepath="$PROJECT_DIR$/22_Stack/22_Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/23_Queue/23_Queue.iml" filepath="$PROJECT_DIR$/23_Queue/23_Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/24_Hashing/24_Hashing.iml" filepath="$PROJECT_DIR$/24_Hashing/24_Hashing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/25_Generics/25_Generics.iml" filepath="$PROJECT_DIR$/25_Generics/25_Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/PRO2.iml" filepath="$PROJECT_DIR$/PRO2.iml" />
     </modules>
   </component>

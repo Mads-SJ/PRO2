@@ -52,7 +52,7 @@ public class HashSetLinearProbing {
 		if (contains(x)) { return false; }
 
 		double loadFactor = (double) currentSize / buckets.length;
-		if (loadFactor > 0.75) {
+		if (loadFactor > 0.5) {
 			rehash();
 		}
 
@@ -78,8 +78,8 @@ public class HashSetLinearProbing {
 	 */
 	public boolean remove(Object x) {
 		int h = hashValue(x);
-		Object object = buckets[h];
 		boolean removed = false;
+		Object object = buckets[h];
 		while (!(removed || object == null)) {
 			if (object.equals(x)) {
 				buckets[h] = DELETED;
