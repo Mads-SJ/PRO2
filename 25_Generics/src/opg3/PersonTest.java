@@ -21,12 +21,13 @@ public class PersonTest {
         personer.add(p3);
         personer.add(p4);
 
-        ArrayList<Person<String>> personer2 = new ArrayList<>();
-        personer2.add(p1);
+//        ArrayList<Person<String>> personer2 = new ArrayList<>();
+//        personer2.add(p1);
 
-        print(personer2);
+        // print(personer2);
 
         print(personer);
+        System.out.println();
 
         Collections.sort(personer);
 
