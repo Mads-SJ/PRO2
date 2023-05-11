@@ -44,9 +44,10 @@ public class DictionaryLinked<K, V> implements Dictionary<K, V> {
 			}
 			current = current.next;
 		}
-		current.next = new Node();
-		current.next.key = key;
-		current.next.value = value;
+		Node node = new Node();
+		node.key = key;
+		node.value = value;
+		current.next = node;
 		size++;
 		return null;
 	}

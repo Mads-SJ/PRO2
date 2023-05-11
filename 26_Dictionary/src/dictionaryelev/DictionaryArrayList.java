@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DictionaryArrayList<K, V> implements Dictionary<K, V> {
     private final ArrayList<Entry<K, V>>[] buckets;
-    private static int N = 10;
+    private final static int N = 10;
     private int size;
 
     public DictionaryArrayList() {

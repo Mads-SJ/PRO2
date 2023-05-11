@@ -4,10 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DictionaryArrayListTest {
+public class DictionaryTest {
     Dictionary<String, Integer> dictionary;
     @BeforeEach
     public void setUp() {
+        // dictionary = new DictionaryHashMap<>();
         dictionary = new DictionaryArrayList<>();
     }
 
