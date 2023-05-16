@@ -18,7 +18,8 @@
       <module fileurl="file://$PROJECT_DIR$/24_Hashing/24_Hashing.iml" filepath="$PROJECT_DIR$/24_Hashing/24_Hashing.iml" />
       <module fileurl="file://$PROJECT_DIR$/25_Generics/25_Generics.iml" filepath="$PROJECT_DIR$/25_Generics/25_Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/26_Dictionary/26_Dictionary.iml" filepath="$PROJECT_DIR$/26_Dictionary/26_Dictionary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/27_Tree/27_Tree.iml" filepath="$PROJECT_DIR$/27_Tree/27_Tree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/27_BinaryTree/27_BinaryTree.iml" filepath="$PROJECT_DIR$/27_BinaryTree/27_BinaryTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/28_BinarySearchTree/28_BinarySearchTree.iml" filepath="$PROJECT_DIR$/28_BinarySearchTree/28_BinarySearchTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/PRO2.iml" filepath="$PROJECT_DIR$/PRO2.iml" />
     </modules>
   </component>

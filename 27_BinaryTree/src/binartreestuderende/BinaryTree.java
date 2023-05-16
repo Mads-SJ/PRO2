@@ -98,7 +98,6 @@ public class BinaryTree<E> {
 		E oldData = root.data;
 		root.data = rootData;
 		return oldData;
-
 	}
 
 	/**
