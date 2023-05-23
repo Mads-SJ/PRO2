@@ -20,7 +20,9 @@
       <module fileurl="file://$PROJECT_DIR$/26_Dictionary/26_Dictionary.iml" filepath="$PROJECT_DIR$/26_Dictionary/26_Dictionary.iml" />
       <module fileurl="file://$PROJECT_DIR$/27_BinaryTree/27_BinaryTree.iml" filepath="$PROJECT_DIR$/27_BinaryTree/27_BinaryTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/28_BinarySearchTree/28_BinarySearchTree.iml" filepath="$PROJECT_DIR$/28_BinarySearchTree/28_BinarySearchTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eksamen/Eksamen.iml" filepath="$PROJECT_DIR$/Eksamen/Eksamen.iml" />
       <module fileurl="file://$PROJECT_DIR$/PRO2.iml" filepath="$PROJECT_DIR$/PRO2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eksamen/ProeveEksamen/ProeveEksamen.iml" filepath="$PROJECT_DIR$/Eksamen/ProeveEksamen/ProeveEksamen.iml" />
     </modules>
   </component>
 </project>

@@ -165,6 +165,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public E findMax() {
+        if (root == null) {
+            return null;
+        }
         Node current = root;
         while (current.right != null) {
             current = current.right;
@@ -173,6 +176,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public E findMin() {
+        if (root == null) {
+            return null;
+        }
         Node current = root;
         while (current.left != null) {
             current = current.left;

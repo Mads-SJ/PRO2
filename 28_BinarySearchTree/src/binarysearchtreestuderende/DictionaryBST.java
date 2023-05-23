@@ -1,7 +1,5 @@
 package binarysearchtreestuderende;
 
-import java.util.Currency;
-
 public class DictionaryBST<K extends Comparable<K>, V> implements
 Dictionary<K, V> {
 
@@ -35,11 +33,7 @@ Dictionary<K, V> {
 				current = current.right;
 			}
 		}
-		if (found) {
-			return current;
-		} else {
-			return null;
-		}
+		return found ? current : null;
 
 	}
 
@@ -220,5 +214,4 @@ Dictionary<K, V> {
 			}
 		}
 	}
-
 }
